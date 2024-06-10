@@ -65,7 +65,7 @@ switch (selectedIndex) {
     page = GeneratorPage();
     break;
   case 1:
-    page = Placeholder();
+    page = Favouritespage();
     break;
   default:
     throw UnimplementedError('no widget for $selectedIndex');
@@ -177,5 +177,21 @@ class BigCard extends StatelessWidget {
         child: Text(pair.asPascalCase, style: style, semanticsLabel: "${pair.first} ${pair.second}",), 
       ),
     );
+  }
+}
+class Favouritespage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+     var favState = context.watch<MyAppState>();
+     var favouriteslist = favState.favourites;
+     return Padding(
+       padding: const EdgeInsets.all(50),
+       child: Column(
+        children: [
+          Text("These are your favourites: "),
+        ],
+           ),
+     );
+    
   }
 }
